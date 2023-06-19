@@ -35,3 +35,27 @@ function addNewUser(newUser) {
       .catch(error => console.error(error));
 }
 //addNewUser()
+
+function updateUser(user, id){
+    axios.put(`${url}/${id}`, user)
+    .then(response => {
+      alert( JSON.stringify(response.data))
+      getUsers()
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+//updateUser()
+  
+function deleteUser(id){
+    axios.delete(`${url}/${id}`)
+    .then(response => {
+      alert( JSON.stringify(response.data))
+      getUsers()
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+//deleteUser
